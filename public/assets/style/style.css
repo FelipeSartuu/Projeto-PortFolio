@@ -43,7 +43,7 @@ body {
 
 nav {
     width: 100%;
-    background-color: var(--background);
+    background-color: transparent;
     color: var(--text);
     height: 60px;
     display: flex;
@@ -69,6 +69,7 @@ nav {
 
 .nav-menu a {
     text-decoration: none;
+    color: var(--text);
 }
 
 .nav-menu-item {
@@ -145,7 +146,7 @@ nav {
 
 .home-left-text h1 {
     font-size: 3.5em;
-    color: #754ef9;
+    color: var(--cor-primaria);
     line-height: 50px;
     font-weight: 700;
     opacity: 0;
@@ -303,7 +304,7 @@ nav {
 
 .profession-container .overlay {
     position: absolute;
-    top: 0;
+    top: -7px;
     right: 0;
     width: 0;
     height: 0;
@@ -324,6 +325,41 @@ nav {
 
 
 
+
+
+
+
+
+
+
+
+
+.social-fixed {
+    position: fixed;
+    background-color: whitesmoke;
+    padding: 5px;
+    left: 50px;
+    bottom: 50px;
+    border-radius: 20px;
+    min-height: 100px;
+    width: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid var(--cor-primaria);
+    box-shadow: none;
+    animation: pulse 1.5s ease-out infinite
+}
+
+
+.social-fixed i {
+    transition: 0.2s;
+} 
+
+.social-fixed i:hover {
+    transform: scale(1.4);
+} 
 
 
 
@@ -508,6 +544,7 @@ nav {
     background-color: var(--background);
     color: whitesmoke;
     height: 100vh;
+    scroll-margin-top: 60px;
 }
 
 .services-area {
@@ -570,7 +607,8 @@ nav {
     justify-content: center;
     background-color: var(--background);
     color: var(--text);
-    height: 200vh;
+    min-height: 100vh;
+    scroll-margin-top: 60px;
 }
 
 .projects-container {
@@ -776,3 +814,125 @@ nav {
     }
 }
 
+@keyframes pulse {
+    0% {
+        box-shadow: none;
+    }
+
+    50% {
+        box-shadow: 10px 10px 50px var(--cor-primaria);
+        
+    }
+
+    90% {
+        box-shadow: 2.5px 2.5px 25px var(--cor-primaria);
+    }
+
+    100% {
+        box-shadow: 1px 1px 10px var(--cor-primaria);
+    }
+}
+
+
+
+
+
+.contact {
+    min-height: 100vh;
+    background-color: var(--background);
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid var(--cor-primaria);
+    padding: 50px 250px;
+    border-radius: 50px;
+    background-color: var(--background);
+}
+
+.contact-text {
+    text-align: center;
+}
+
+.contact-text h2 {
+    color: var(--cor-primaria);
+    font-size: 4em;
+}
+
+.contact-text p {
+    color: var(--text2);
+    margin-bottom: 50px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.form .input {
+    margin-top: 15px;
+    padding: 10px 10px 10px 45px;
+    border-radius: 8px;
+    background-color: #E8F0FE;
+    outline: none;
+    width: 355px;
+    transition: 0.3s;
+}
+
+.form .input:focus {
+    border: 2px solid var(--cor-primaria);
+    box-shadow: 10px 10px 50px var(--cor-primaria);
+}
+
+.contact-form-container {
+    position: relative;
+}
+
+.contact-form-container i {
+    position: absolute;
+    left: 10px;
+    top: 58px;
+}
+
+.form .submit {
+    width: 170px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--cor-primaria);
+    color: whitesmoke;
+    transition: 0.2s;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.form .submit:hover {
+    cursor: pointer;
+    color: var(--cor-primaria);
+    background-color: whitesmoke;
+    box-shadow: 5px 5px 50px #5100ff;
+}
+
+
+
+
+
+
+  .input#textarea {
+    height: 300px;
+  }

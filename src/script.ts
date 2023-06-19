@@ -25,3 +25,18 @@ button.addEventListener("click", () => {
     }
   });
 });
+
+
+const nav = document.querySelector('nav');
+
+const handleScroll = () => {
+  let scrollTop = window.scrollY
+  if (scrollTop > 0) {
+    nav.style.background = 'var(--background)';
+  } else {
+    nav.style.background = 'transparent';
+  }
+};
+
+window.addEventListener('scroll', handleScroll);
+
