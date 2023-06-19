@@ -1,3 +1,12 @@
+const toggleIcon = document.querySelector(".toggle-icon") as HTMLElement
+
+toggleIcon.addEventListener("click", () => {
+  toggleIcon.classList.toggle("bx-sun")
+  document.body.classList.toggle("dark-mode")
+})
+
+
+
 let button = document.querySelector(".projects-button") as HTMLButtonElement;
 let divOcult = document.querySelectorAll(".ocult") as NodeListOf<HTMLElement>
 
