@@ -901,6 +901,7 @@ nav {
 
 .input#textarea {
     height: 300px;
+    resize: none;
 }
 
 .contact-form-container small {
