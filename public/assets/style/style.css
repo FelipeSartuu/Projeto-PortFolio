@@ -449,6 +449,8 @@ nav {
 
 
 
+
+
 .techs {
     width: 100%;
     background-color: var(--background);
@@ -772,7 +774,8 @@ nav {
     text-decoration: none;
     text-align: center;
     box-shadow: 5px 5px 50px #5100ff;
-    border: 2px solid var(--cor-primaria);;
+    border: 2px solid var(--cor-primaria);
+    font-weight: 500;
 }
 
 .projects-button:hover {
