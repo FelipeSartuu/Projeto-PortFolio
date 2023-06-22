@@ -1346,3 +1346,20 @@ nav {
     }
 
 }
+
+@media (min-width:0px) and (max-width: 380px) {
+    nav .nav-logo {
+        display: none;
+    }
+
+    nav {
+        justify-content: flex-end;
+    }
+
+    .toggle {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
