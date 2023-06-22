@@ -1,3 +1,9 @@
+let menuIcon = document.querySelector("#menu-icon");
+let navbar = document.querySelector(".nav-menu");
+menuIcon.addEventListener("click", () => {
+    menuIcon.classList.toggle("bx-x");
+    navbar.classList.toggle("active");
+});
 const toggleIcon = document.querySelector(".toggle-icon");
 toggleIcon.addEventListener("click", () => {
     toggleIcon.classList.toggle("bx-sun");
@@ -7,14 +13,14 @@ let button = document.querySelector(".projects-button");
 let divOcult = document.querySelectorAll(".ocult");
 button.addEventListener("click", () => {
     divOcult.forEach((div) => {
-        const computedStyle = getComputedStyle(div);
-        if (computedStyle.display === "none") {
-            div.style.display = "block";
-            button.innerHTML = "Mostrar Menos";
+        const computedStyle = getComputedStyle(div); // Obtém o estilo computado do elemento
+        if (computedStyle.display === "none") { // Verifica se o estilo computado é "none"
+            div.style.display = "block"; // Define o estilo para "block"
+            button.innerHTML = "Mostrar Menos"; // Atualiza o texto do botão para "Mostrar Menos"
         }
         else {
-            div.style.display = "none";
-            button.innerHTML = "Mostrar Mais";
+            div.style.display = "none"; // Define o estilo para "none"
+            button.innerHTML = "Mostrar Mais"; // Atualiza o texto do botão para "Mostrar Mais"
         }
     });
 });
@@ -69,10 +75,6 @@ function checkInputs() {
     else {
         successValidation(textarea);
     }
-    const errorInput = document.querySelectorAll(".error");
-    if (errorInput.length === 0) {
-        form.submit();
-    }
 }
 function errorValidation(input, message) {
     const formContainer = input.parentElement;
@@ -88,3 +90,19 @@ function successValidation(input) {
 function isEmail(email) {
     return /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(email);
 }
+let sections = document.querySelectorAll("section");
+let navlinks = document.querySelectorAll("header nav a");
+window.onscroll = () => {
+    sections.forEach((sec) => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute("id");
+        if (top >= offset && top < offset + height) {
+            navlinks.forEach((link) => {
+                link.classList.remove("active");
+                document.querySelector(`header nav a[href*="${id}"]`).classList.add("active");
+            });
+        }
+    });
+};

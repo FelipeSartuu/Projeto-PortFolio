@@ -1,3 +1,19 @@
+//Menu
+
+let menuIcon = document.querySelector("#menu-icon")
+let navbar = document.querySelector(".nav-menu")
+
+menuIcon.addEventListener("click", () => {
+  menuIcon.classList.toggle("bx-x")
+  navbar.classList.toggle("active")
+})
+
+
+
+
+
+
+//Light and Dark Mode
 const toggleIcon = document.querySelector(".toggle-icon") as HTMLElement
 
 toggleIcon.addEventListener("click", () => {
@@ -28,6 +44,8 @@ button.addEventListener("click", () => {
 
 
 
+
+//Nav bar transparent and github + linkedin
 const nav = document.querySelector('nav') as HTMLElement;
 const mediaIcons = document.querySelector(".social-fixed") as HTMLElement;
 
@@ -110,3 +128,24 @@ function successValidation(input: HTMLInputElement) {
 function isEmail(email: string): boolean {
   return /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(email)
 }
+
+
+
+let sections = document.querySelectorAll("section");
+let navlinks = document.querySelectorAll("header nav a");
+
+window.onscroll = () => {
+  sections.forEach((sec: HTMLElement) => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 150;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute("id");
+
+    if (top >= offset && top < offset + height) {
+      navlinks.forEach((link: HTMLElement) => {
+        link.classList.remove("active");
+        document.querySelector(`header nav a[href*="${id}"]`).classList.add("active");
+      });
+    }
+  });
+};
