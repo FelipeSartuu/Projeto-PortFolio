@@ -70,64 +70,80 @@ window.addEventListener('scroll', handleScroll);
 
 
 
-
-
+// VALIDATION FORMS
 
 const form = document.querySelector(".form") as HTMLFormElement;
 const username = document.querySelector(".contact-input-name") as HTMLInputElement;
 const email = document.querySelector(".contact-input-email") as HTMLInputElement;
 const textarea = document.querySelector(".contact-input-textarea") as HTMLInputElement;
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  checkInputs();
-});
+form.addEventListener("submit", checkInputs);
 
-function checkInputs() {
+function checkInputs(event: Event) {
   const usernameValue: string = username.value.trim();
   const emailValue: string = email.value.trim();
   const textareaValue: string = textarea.value.trim();
 
+  let isValid = true;
+
   if (usernameValue === "") {
     errorValidation(username, "Preencha esse campo");
+    isValid = false;
   } else {
     successValidation(username);
   }
 
   if (emailValue === "") {
     errorValidation(email, "Preencha esse campo");
+    isValid = false;
   } else if (!isEmail(emailValue)) {
-    errorValidation(email, 'Email inválido') 
-  }
-  else {
+    errorValidation(email, 'Email inválido');
+    isValid = false;
+  } else {
     successValidation(email);
   }
 
   if (textareaValue === "") {
     errorValidation(textarea, "Preencha esse campo");
+    isValid = false;
   } else {
     successValidation(textarea);
   }
 
+  if (!isValid) {
+    event.preventDefault();
+  }
 }
 
 function errorValidation(input: HTMLInputElement, message: string) {
   const formContainer: HTMLElement = input.parentElement as HTMLElement;
-  const small: HTMLElement = formContainer.querySelector(".small-error");
+  const small: HTMLElement = formContainer.querySelector(".small-error") as HTMLElement;
 
   small.innerText = message;
-  formContainer.className = "contact-form-container error"
+  formContainer.className = "contact-form-container error";
 }
 
 function successValidation(input: HTMLInputElement) {
   const formContainer = input.parentElement as HTMLElement;
-  formContainer.classList.remove("error")
-  formContainer.className = "contact-form-container success"
+  formContainer.classList.remove("error");
+  formContainer.className = "contact-form-container success";
 }
 
 function isEmail(email: string): boolean {
-  return /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/.test(email)
+  return /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b-\x0c\x0e-\x7f])+)\])/.test(email);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
