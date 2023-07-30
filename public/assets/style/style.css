@@ -1342,6 +1342,18 @@ nav {
 
 
 
+    .about-techs ul:first-child {
+        padding: 0px 0px 0px 0px
+    }
+
+    .about-techs ul {
+        padding: 0px 0px 0px 20px;
+    }
+
+    .about-techs li {
+        min-width: 125px;
+    }
+
     .techs-title h2 {
         font-size: 3em;
     }
