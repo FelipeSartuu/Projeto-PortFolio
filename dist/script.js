@@ -32,7 +32,7 @@ const mediaIcons = document.querySelector(".social-fixed");
 function handleScroll() {
     let scrollTop = window.scrollY;
     if (scrollTop > 0) {
-        nav.style.background = 'var(--background)';
+        nav.style.background = 'var(--navbar)';
     }
     else {
         nav.style.background = 'transparent';
