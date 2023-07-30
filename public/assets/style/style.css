@@ -1081,6 +1081,10 @@ nav {
         margin-top: 90px;
         width: 100%;
     }
+
+    .about-image img {
+        width: 100%;
+    }
 }
 
 @media (min-width:767px) and (max-width: 1023px) {
