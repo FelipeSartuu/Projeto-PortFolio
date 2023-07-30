@@ -452,6 +452,7 @@ nav {
 
 .about p {
     color: var(--text2);
+    text-align: center;
 }
 
 .right-container {
@@ -1075,7 +1076,7 @@ nav {
         justify-content: center;
         align-items: center;
     }
-    
+
     .right-container {
         margin-top: 90px;
         width: 100%;
@@ -1238,15 +1239,20 @@ nav {
         margin-bottom: 50px;
     }
 
-    .techs-icons {
-        width: 100vw;
-        
+    .about-techs ul:first-child {
+        padding: 0px 20px 0px 0px
     }
 
-    .techs-icons ul {
-        gap: 20px;
-        flex-wrap: wrap;
-        
+    .about-techs ul {
+        padding: 0px 20px 0px 20px;
+    }
+
+    .about-techs li {
+        min-width: 150px;
+    }
+
+    .about-techs-pai {
+        flex-direction: column;
     }
 
     .projects-area {
