@@ -503,6 +503,7 @@ nav {
 
 .about-tech img {
     width: 50px;
+    height: 50px;
 }
 
 .about-tech img:hover {
@@ -511,8 +512,8 @@ nav {
 
 .about-experiencias h4 {
     font-size: 1.4em;
-    color: var(--cor-primaria);
-    font-weight: 300;
+    color: var(--text);
+    font-weight: 500;
 }
 
 .about-tech h5 {
