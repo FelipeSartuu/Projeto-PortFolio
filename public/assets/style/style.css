@@ -259,7 +259,8 @@ nav {
     right: 0;
     transform: translateY(-50%);
     width: 50%;
-    height: 100%;
+    max-height: 100vh;
+
 }
 
 .profession-container .profession-box {
@@ -329,7 +330,7 @@ nav {
 
 .profession-container .overlay {
     position: relative;
-    top: -7px;
+    top: -9px;
     right: -10%;
     width: 100%;
     height: 100%;
@@ -1052,10 +1053,8 @@ nav {
     }
 
     .home-img {
-        background-image: url(../images/felipe2.png);
-        background-repeat: no-repeat;
-        left: 50%;
-        top: 26%;
+        left: -5%;
+        top: 23.7%;
     }
 
     .projects-area {
